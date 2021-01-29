@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# credits to lukesmith for filter: https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/statusbar/sb-music
+filter() { mpc | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/⏸/g;/\\[playing\\].*/d" | paste -sd ' ' -;}
+
+shorten() {
+  sed "s/I DONT KNOW HOW BUT THEY FOUND ME/iDKHOW/;s/Panic! At The Disco/Panic/"
+}
+
+case $(mpc status) in
+  *"[playing"*)
+    name="▶️ ";;
+  *"[paused"*)
+    name="⏸️ ";;
+esac
+
+name+="$(mpc status -f "%artist% - %title% " | sed -n '1p' | shorten) [$(mpc status | sed -n '2p' | grep -Eo '[0-9]{1,2}:[0-9]{1,2}\/[0-9]{1,2}:[0-9]{1,2}')]"
+
+# If there's nothing playing, reflect that in the status bar
+case $name in
+  *"volume: n/a"*)
+    name="Not Playing" ;;
+esac
+
+echo $name
+

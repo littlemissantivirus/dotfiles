@@ -1,0 +1,6 @@
+#!/bin/sh
+
+output=$(dmenu -fn monospaced:size=10 -l 10 -g 1 -sb $(xrdb -query | grep "*color2" | cut -f 2) -dy "ls ~/.local/bin/copypastas/")
+
+notify-send "Copied!" "$(cat ~/.local/bin/copypastas/$output)"
+echo $output

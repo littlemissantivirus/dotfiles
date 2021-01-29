@@ -1,0 +1,3 @@
+#!/bin/sh
+
+~/.local/bin/start$(echo -e "dwm\ni3" | dmenu -g 1 -l 4 -fn monospaced:size=10)
