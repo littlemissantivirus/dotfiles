@@ -1,0 +1,14 @@
+#!/bin/sh
+
+wallpaper=$(find ~/.local/wallpapers/ -type f | shuf -n 1)
+cp $wallpaper ~/.local/wallpaper.png
+
+picom & # Our compositor, makes some windows nice and see through!
+nitrogen --restore --set-zoom-fill & # Restore our wallpaper.
+wal -i ~/.local/wallpaper.png & # Create a colour scheme based on our programs
+xrdb ~/.xresources & # load up our resource shit
+mpd & # music player daemon, in the name for what it does
+dunst & # dunst, the notification manager
+unclutter & # removes the mouse when it's idle
+yams -d & # starts up yams, our mpd last.fm scrobbler
+dwmblocks & # starts up our statusbar
