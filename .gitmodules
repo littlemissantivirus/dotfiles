@@ -1,9 +1,9 @@
 [submodule "builds/suckless/dwm"]
 	path = builds/suckless/dwm
-	url = https://github.com/littlemissantivirus/dwm
+	url = git@github.com:littlemissantivirus/dwm
 [submodule "builds/suckless/dmenu"]
 	path = builds/suckless/dmenu
-	url = https://github.com/littlemissantivirus/dmenu
+	url = git@github.com:littlemissantivirus/dmenu
 [submodule "builds/suckless/st"]
 	path = builds/suckless/st
-	url = https://github.com/littlemissantivirus/st
+	url = git@github.com:littlemissantivirus/st
